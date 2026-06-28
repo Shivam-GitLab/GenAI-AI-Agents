@@ -1,4 +1,4 @@
-# What is an LLM, Generative AI, Models & Machine Learning
+# 01 - What is an LLM, Generative AI, Models & Machine Learning
 
 ## 1. Machine Learning (ML)
 
@@ -187,4 +187,186 @@ Not all models do the same thing — they're trained for different purposes depe
 3. **Training Process** = Data Collection → Data Preparation (clean + remove bias) → Training (guess → check → adjust, repeated many times).
 4. **LLM** = a type of model trained on massive amounts of *text*, capable of understanding/generating human language.
 5. **AI** = the broad umbrella term for any machine behavior that mimics human intelligence; ML, models, and LLMs all fall under it. AI has existed since the 1950s — it's not new, just rapidly advancing recently.
-6. **ChatGPT / Gemini / Claude** = user-facing interfaces/wrappers, NOT the AI itself. The real intelligence lives in the underlying models (GPT-4, GPT-5, Claude models, etc.) that power these interfaces.
+6. **ChatGPT / Gemini / Claude** = user-facing interfaces/wrappers, NOT the AI itself. The real intelligence lives in the underlying models (GPT-4, GPT-5, Claude models, etc.) that power these interfaces.q
+
+
+
+
+# 02 - What is an AI Agent & Agentic AI
+
+## 1. The Problem: Traditional Prompting vs AI Agents
+
+### Traditional Prompting Mode (ChatGPT, Gemini, Claude as a chat interface)
+This is the typical interaction pattern most people are used to:
+- You type a **prompt**
+- You get a **response**
+- You ask a **follow-up question**
+- You get another **response**
+
+This is essentially **one-to-one messaging**: ask something → get an answer based only on that ask. It can have memory and summarize things, but it is fundamentally **reactive** — it waits for your input each time.
+
+### AI Agent Mode — Fundamentally Different
+An **AI agent** doesn't just respond once and stop. Instead:
+- It is given an **end goal**.
+- It **decides its own next steps** on its own (no one tells it the steps).
+- It works in an **iterative loop**:
+
+```
+Set Goal → Plan next steps → Execute → Check Results
+                ↑                              │
+                └────── Fix issues, repeat ─────┘
+                                │
+                                ▼
+                        Final Deliverable (Goal achieved)
+```
+
+- It keeps looping — execute, check, fix — **until the goal is actually achieved**, not just until one response is given.
+
+**Core distinction:**
+> Prompting = single ask → single response.
+> AI Agent = given a goal → autonomously plans, executes, checks, fixes, repeats → delivers final result.
+
+---
+
+## 2. Defining an AI Agent
+
+**Definition:** An AI agent is a software program (built around a model) that:
+1. Is given a **goal**.
+2. **Plans** the steps needed to achieve that goal.
+3. **Executes** those steps.
+4. **Checks** whether the goal has been achieved.
+5. If not achieved → it **iterates**: fixes errors, re-thinks, re-executes — on its own.
+6. Eventually delivers the **final end goal/result**.
+
+---
+
+## 3. Characteristics of an AI Agent
+
+An AI agent needs the following key characteristics to function this way:
+
+### a) Autonomy
+- It **independently** determines the best course of action.
+- It comes up with its own plan **without anyone's help**.
+
+### b) Reasoning & Planning Ability
+- It breaks down a **complex task** into smaller, manageable chunks.
+  - **Example:** If asked to "build an entire web application," it won't try to do it in one giant step — it plans it out into smaller parts.
+- It can **reason** and **question** things as it works through the plan, then executes the plan step by step.
+
+### c) Memory
+- It needs its own memory so it can **retain context** over a task — especially important since agentic tasks can run long and involve many steps.
+
+### d) Tool Access
+- Depending on its purpose, an agent needs access to relevant tools, such as:
+  - Web search
+  - Email access
+  - APIs
+  - Local file access
+- The tools given depend entirely on **what the agent is meant to do** (its goal/domain).
+
+**Summary table:**
+
+| Characteristic | What it Means |
+|---|---|
+| Autonomy | Decides actions independently, no hand-holding |
+| Reasoning & Planning | Breaks big tasks into smaller steps; reasons through problems |
+| Memory | Retains context across a multi-step/long-running task |
+| Tool Access | Can use external tools (email, APIs, files, web search, etc.) relevant to its goal |
+
+---
+
+## 4. Agentic AI — What Does This Term Mean?
+
+**Definition:** **Agentic AI** simply refers to **systems that make use of AI agents** — i.e., systems that can plan things, break tasks down on their own, and deliver the end result, rather than just responding to single prompts.
+
+> AI Agent = the individual autonomous "actor."
+> Agentic AI = the broader category/system built using such agents.
+
+---
+
+## 5. AI Agents vs Traditional Chatbots
+
+| Traditional Chatbot (ChatGPT/Claude web interface) | AI Agent |
+|---|---|
+| Reactive — responds only when prompted | Proactive — works toward a goal on its own |
+| One-to-one messaging (ask → answer) | Iterative loop (plan → execute → check → fix → repeat) |
+| Has memory, can summarize | Has memory **plus** autonomy, reasoning, and tool access |
+| Does **not** need independence | **Needs** autonomy and reasoning ability to function |
+| Doesn't typically modify files or run code on its own | Can execute tasks, modify files, write code, run it, detect failures, and fix them — repeating until it works |
+
+**Key line from the video:** *"Chatbots are reactive to prompts, but AI agents are not."*
+
+---
+
+## 6. Real-World Examples of AI Agents
+
+### Example 1: Customer Support Bot
+**Goal:** Automatically respond to customer service tickets/emails without human intervention (where possible).
+
+**How it works:**
+1. A customer email arrives in the mailbox.
+2. The AI agent **reads** the email.
+3. It **categorizes** the issue (e.g., billing issue, technical issue, refund request).
+4. It checks a **knowledge base** (e.g., "refunds are allowed within a 30-day window").
+5. Based on the knowledge base + category, it **decides the appropriate action**:
+   - If it's a refund request within the 30-day window → it accesses the **refund tool/API**, processes the refund, and sends a confirmation email.
+   - It can even **ask the customer for feedback** afterward (why they wanted a refund).
+
+**Characteristics demonstrated:**
+- **Autonomy:** Triggered by an incoming email, it acts without a human stepping in.
+- **Reasoning & Planning:** Figures out what kind of response fits the situation (e.g., adjusts tone/response for an unhappy customer).
+- **Memory:** Retains context of the conversation/ticket.
+- **Tool Access:** Email access → Knowledge base access → Refund API/dashboard access.
+
+**Why this matters (business context):** Without an agent, a human would have to manually check every refund request against the 30-day policy and process it — a repetitive task done many times a week. The AI agent automates this entire repetitive workflow end-to-end.
+
+---
+
+### Example 2: Personal Productivity Bot
+**Goal:** Manage your calendar, emails, and follow-ups automatically.
+
+**How it works:**
+- It has access to your **emails and calendar**.
+- Example scenario: Someone emails asking, *"Are you free Tuesday at 5pm?"*
+  1. The agent checks your calendar for Tuesday 5pm.
+  2. If free, it **drafts a confirmation reply** ("I don't have any meetings at that time, go ahead and send an invite").
+  3. It **saves it as a draft**, waiting for your approval (rather than sending it outright) — you approve next time you log in.
+- It can also:
+  - **Schedule calls** for you.
+  - **Block time** on your calendar based on incoming emails.
+  - **Create reminders**: e.g., if someone asks you to "revert by Tuesday," it creates a calendar reminder for you to follow up.
+
+**Characteristics demonstrated:** Autonomy, reasoning ability, memory, and tool access (calendar + email).
+
+---
+
+### Example 3: "Pro Code Writer" Bot
+**Goal:** Take a feature request and deliver fully working, tested code.
+
+**How it works:**
+1. Takes a **feature request** as the goal.
+2. Writes code following a predefined **architecture playbook** stored in its knowledge base.
+3. Writes **test cases** for the code.
+4. **Runs the code**, and if there are compilation/runtime issues:
+   - Reads the **error/stack trace**.
+   - **Fixes the code**.
+   - **Re-runs** it.
+5. **Re-validates** against test cases.
+6. Repeats the fix → run → test cycle until the code is clean and all tests pass.
+
+**Why this is a great example of "agentic" behavior:** It's not just writing code once — it's looping through write → test → fail → fix → retest until the goal (clean, working code) is achieved, entirely on its own.
+
+---
+
+## 7. Quick Recap (Exam/Interview-Ready Summary)
+
+1. **Traditional prompting** = ask → get a response → ask again (reactive, one-shot per message).
+2. **AI Agent** = given a goal, it autonomously plans, executes, checks results, and iterates (fixes + retries) until the goal is achieved.
+3. **Four key characteristics of an AI agent:**
+   - **Autonomy** — acts independently
+   - **Reasoning & Planning** — breaks down complex goals into steps
+   - **Memory** — retains context across the task
+   - **Tool Access** — can use external tools (email, APIs, files, web search, etc.) relevant to its purpose
+4. **Agentic AI** = systems built using AI agents — i.e., systems capable of autonomous planning and execution toward a goal.
+5. **Chatbots are reactive; AI agents are proactive/autonomous** — this is the core difference.
+6. **Real-world examples:** Customer support bot (auto-handles refunds/tickets), Personal productivity bot (manages calendar/email/reminders), Pro code writer bot (writes, tests, fixes, and delivers working code automatically).
